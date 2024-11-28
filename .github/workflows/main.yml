@@ -1,25 +1,21 @@
-name: Deploy to Cloudways on Merge
+name: Deploy to Server via SSH
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
-
-    - name: Deploy to Cloudways
-      uses: appleboy/ssh-action@v0.1.6
-      with:
-        host: ${{ secrets.CLOUDWAYS_HOST }}
-        username: ${{ secrets.CLOUDWAYS_USERNAME }}
-        key: ${{ secrets.CLOUDWAYS_KEY }}
-        script: |
-          cd /home/1018477.cloudwaysapps.com/wvgxnmfydt/public_html/auto
-          git pull origin main
-      
+      - uses: actions/checkout@v3
+      - name: SSH to Server
+        uses: leangen/action-ssh@v1
+        with:
+          host: 142.93.150.193
+          username: stageccat
+          private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /home/1018477.cloudwaysapps.com/wvgxnmfydt/public_html/auto
+            git pull origin main
