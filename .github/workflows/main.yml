@@ -10,7 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: SSH to Server
-        uses: leangen/action-ssh@v1
         with:
           host: 142.93.150.193
           username: stageccat
