@@ -20,4 +20,3 @@ jobs:
       - name: Deploy to Cloudways
         run: |
           ssh -i ~/.ssh/cloudways.key stageccat@142.93.150.193 "cd /home/1018477.cloudwaysapps.com/wvgxnmfydt/public_html/auto && git pull origin main"
-
