@@ -1,22 +1,23 @@
-name: Deploy to Server via SSH
+name: Deploy to Cloudways
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - name: SSH to Server
-        uses: leangen/action-ssh@v1
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
         with:
-          host: 142.93.150.193
-          username: stageccat
-          private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          script: |
-            cd /home/1018477.cloudwaysapps.com/wvgxnmfydt/public_html/auto
-            git pull origin main
-          
+          ssh-private-key: ${{ secrets.CLOUDWAYS_SSH_KEY }}
+
+      - name: Deploy to Cloudways
+        run: |
+          ssh -i ~/.ssh/cloudways.key stageccat@142.93.150.193 "cd /home/1018477.cloudwaysapps.com/wvgxnmfydt/public_html/auto && git pull origin main"
