@@ -40,7 +40,7 @@ jobs:
           cd /home/master/applications/wvgxnmfydt/public_html/ccatgit/web/app/themes/ccat
           composer update --no-dev --optimize-autoloader
           npm install yarn
-          yarn install
+          npm audit fix --force
           yarn build
     - name: Notify Success
       run: echo "✅ Build process completed successfully!"    
