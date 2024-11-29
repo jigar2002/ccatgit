@@ -33,12 +33,12 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        cd /home/master/applications/wvgxnmfydt/public_html/ccatgit
+        cd /home/master/applications/wvgxnmfydt/public_html/ccatgit/web/app/themes/ccat
         yarn install
       
     - name: Build Project
       run: |
-        cd /home/master/applications/wvgxnmfydt/public_html/ccatgit
+        cd /home/master/applications/wvgxnmfydt/public_html/ccatgit/web/app/themes/ccat
         run: yarn build
 
     - name: Notify Success
