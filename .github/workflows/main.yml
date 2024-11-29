@@ -39,6 +39,7 @@ jobs:
         script: |
           cd /home/master/applications/wvgxnmfydt/public_html/ccatgit/web/app/themes/ccat
           composer update --no-dev --optimize-autoloader
+          nvm use 20.0
           #npx install yarn --save-dev
           #npx yarn
           npx yarn build
