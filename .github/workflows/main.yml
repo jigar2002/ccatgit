@@ -20,6 +20,6 @@ jobs:
         username: ${{ secrets.CLOUDWAYS_USERNAME }}
         key: ${{ secrets.CLOUDWAYS_KEY }}
         script: |
-          cd /home/1018477.cloudwaysapps.com/wvgxnmfydt/public_html/auto
+          cd /home/master/applications/wvgxnmfydt/public_html/auto
           git pull origin main
       
