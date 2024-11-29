@@ -13,7 +13,7 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Deploy to Cloudways
+    - name: Deploy to Cloudways and Run composer
       uses: appleboy/ssh-action@v0.1.6
       with:
         host: ${{ secrets.CLOUDWAYS_HOST }}
@@ -22,5 +22,5 @@ jobs:
         script: |
           cd /home/master/applications/wvgxnmfydt/public_html/ccatgit
           git pull origin main
-    - name: Run composer
-      run: composer install --no-dev --optimize-autoloader --working-dir=/home/master/applications/wvgxnmfydt/public_html/ccatgit
+          run: composer install --no-dev --optimize-autoloader
+      
