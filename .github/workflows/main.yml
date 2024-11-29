@@ -30,7 +30,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 20 # Adjust Node.js version as required
-
+    - name: Install Yarn
+      run: npm install -g yarn
     - name: Install Dependencies
       uses: appleboy/ssh-action@v0.1.6
       with:
