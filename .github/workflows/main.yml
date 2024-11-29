@@ -20,29 +20,23 @@ jobs:
         username: ${{ secrets.CLOUDWAYS_USERNAME }}
         key: ${{ secrets.CLOUDWAYS_KEY }}
         script: |
+          echo "Step 1: Navigate to app root directory"
           cd /home/master/applications/wvgxnmfydt/public_html/ccatgit
+          echo "Step 2: Pull origin main"
           git pull origin main
-          #composer update --no-dev --optimize-autoloader
-    - name: Checkout Code
-      uses: actions/checkout@v4
-    - name: NVM Setup Node
-      uses: irby/setup-node-nvm@v1.0.0
-      with:
-        node-version: 20.0.0   
-    - name: Install Dependencies and Build Public assest
-      uses: appleboy/ssh-action@v0.1.6
-      with:
-        host: ${{ secrets.CLOUDWAYS_HOST }}
-        username: ${{ secrets.CLOUDWAYS_USERNAME }}
-        key: ${{ secrets.CLOUDWAYS_KEY }}
-        script: |
+          echo "Step 3: Composer update"
+          composer update --no-dev --optimize-autoloader
+          echo "Step 4: Navigate to theme directory"
           cd /home/master/applications/wvgxnmfydt/public_html/ccatgit/web/app/themes/ccat
-          #composer update --no-dev --optimize-autoloader
-          #npm update
+          echo "Step 5: Install Dependencies and Build Public assest"
+          composer update --no-dev --optimize-autoloader
+          echo "Step 6: Install nvm"
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
           source ~/.nvm/nvm.sh
-          nvm install 20
+          echo "Step 7: Set node version 20.0"
           nvm use 20
+          echo "Step 7: Installing dependencies"
           npx yarn
-          npx yarn build
-    
+          echo "Step 8: Building the application"
+          npx yarn build 
+    - name: Deployment completed successfully!
