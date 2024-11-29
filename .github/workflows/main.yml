@@ -39,4 +39,4 @@ jobs:
           npx yarn
           echo "Step 8: Building the application"
           npx yarn build 
-    - name: Deployment completed successfully!
+           echo "Step 8: Deployment completed successfully!"
