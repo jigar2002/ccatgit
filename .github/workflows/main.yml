@@ -22,3 +22,7 @@ jobs:
         script: |
           cd /home/master/applications/wvgxnmfydt/public_html/ccatgit
           git pull origin main
+    - name: Run Composer Update
+      run: |
+        cd /home/master/applications/wvgxnmfydt/public_html/ccatgit
+        composer update --no-dev --optimize-autoloader
