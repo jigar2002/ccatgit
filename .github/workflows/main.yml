@@ -30,6 +30,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 20 # Adjust Node.js version as required
+    - name: Install Dependencies and Build Public assest
       uses: appleboy/ssh-action@v0.1.6
       with:
         host: ${{ secrets.CLOUDWAYS_HOST }}
