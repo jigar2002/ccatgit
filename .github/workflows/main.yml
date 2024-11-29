@@ -25,7 +25,10 @@ jobs:
           composer update --no-dev --optimize-autoloader
     - name: Checkout Code
       uses: actions/checkout@v4
-
+    - name: NVM Setup Node
+      uses: irby/setup-node-nvm@v1.0.0
+      with:
+        node-version: 20.0.0   
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
