@@ -22,7 +22,25 @@ jobs:
         script: |
           cd /home/master/applications/wvgxnmfydt/public_html/ccatgit
           git pull origin main
-    - name: Run Composer Update
+          composer update --no-dev --optimize-autoloader
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20 # Adjust Node.js version as required
+
+    - name: Install Dependencies
       run: |
         cd /home/master/applications/wvgxnmfydt/public_html/ccatgit
-        composer update --no-dev --optimize-autoloader
+        yarn install
+      
+    - name: Build Project
+      run: |
+        cd /home/master/applications/wvgxnmfydt/public_html/ccatgit
+        run: yarn build
+
+    - name: Notify Success
+      run: echo "✅ Build process completed successfully!"    
+   
