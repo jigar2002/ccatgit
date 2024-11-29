@@ -22,17 +22,13 @@ jobs:
         script: |
           cd /home/master/applications/wvgxnmfydt/public_html/ccatgit
           git pull origin main
-          composer update --no-dev --optimize-autoloader
+          #composer update --no-dev --optimize-autoloader
     - name: Checkout Code
       uses: actions/checkout@v4
     - name: NVM Setup Node
       uses: irby/setup-node-nvm@v1.0.0
       with:
         node-version: 20.0.0   
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 20.0.0 # Adjust Node.js version as required
     - name: Install Dependencies and Build Public assest
       uses: appleboy/ssh-action@v0.1.6
       with:
@@ -45,6 +41,4 @@ jobs:
           #npm update
           npx yarn
           npx yarn build
-    - name: Notify Success
-      run: echo "✅ Build process completed successfully!"    
-   
+    
