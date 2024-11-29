@@ -29,7 +29,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 20 # Adjust Node.js version as required
+        node-version: 20.0.0 # Adjust Node.js version as required
     - name: Install Dependencies and Build Public assest
       uses: appleboy/ssh-action@v0.1.6
       with:
@@ -38,7 +38,9 @@ jobs:
         key: ${{ secrets.CLOUDWAYS_KEY }}
         script: |
           cd /home/master/applications/wvgxnmfydt/public_html/ccatgit/web/app/themes/ccat
-          composer update --no-dev --optimize-autoloader
+          #composer update --no-dev --optimize-autoloader
+          nvm use 20.0.0
+          npm update
           npx yarn
           npx yarn build
     - name: Notify Success
