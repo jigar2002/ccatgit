@@ -19,6 +19,8 @@ jobs:
         username: ${{ secrets.CLOUDWAYS_USERNAME }}
         key: |
           ${{ secrets.CLOUDWAYS_KEY }}
-        script: |
+          script: |
+          ssh -v -i ${{ secrets.CLOUDWAYS_KEY }} ${{ secrets.CLOUDWAYS_USERNAME }}@${{ secrets.CLOUDWAYS_HOST }} "git pull origin main"
+          script: |
           cd /home/master/applications/wvgxnmfydt/public_html/auto
           git pull origin main
