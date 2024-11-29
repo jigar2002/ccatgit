@@ -12,14 +12,13 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v3
-
     - name: Deploy to Cloudways
       uses: appleboy/ssh-action@v0.1.6
       with:
         host: ${{ secrets.CLOUDWAYS_HOST }}
         username: ${{ secrets.CLOUDWAYS_USERNAME }}
-        key: ${{ secrets.CLOUDWAYS_KEY }}
+        key: |
+          ${{ secrets.CLOUDWAYS_KEY }}
         script: |
           cd /home/master/applications/wvgxnmfydt/public_html/auto
           git pull origin main
-      
