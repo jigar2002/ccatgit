@@ -22,5 +22,3 @@ jobs:
         script: |
           cd /home/master/applications/wvgxnmfydt/public_html/ccatgit
           git pull origin main
-          run: composer install --no-dev --optimize-autoloader
-      
