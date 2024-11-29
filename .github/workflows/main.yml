@@ -39,6 +39,6 @@ jobs:
           cd /home/master/applications/wvgxnmfydt/public_html/ccatgit/web/app/themes/ccat
           #composer update --no-dev --optimize-autoloader
           #npm update
-          npx yarn
+          #npx yarn
           npx yarn build
     
