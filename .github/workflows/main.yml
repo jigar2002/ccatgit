@@ -36,8 +36,7 @@ jobs:
           echo "Step 7: Set node version 20.0"
           nvm use 20
           echo "Step 7: Installing dependencies"
-          npm ci --only=production
-          npx yarn
+          npx yarn install --production
           echo "Step 8: Building the application"
           npx yarn build 
            echo "Step 8: Deployment completed successfully!"
