@@ -20,5 +20,5 @@ jobs:
         username: ${{ secrets.CLOUDWAYS_USERNAME }}
         key: ${{ secrets.CLOUDWAYS_KEY }}
         script: |
-          cd /home/master/applications/wvgxnmfydt/public_html/auto
+          cd /home/master/applications/wvgxnmfydt/public_html/ccatgit
           git pull origin main
